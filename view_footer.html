@@ -1,0 +1,128 @@
+<footer class="container-fluid text-center" title="" style=" background-image: url(images/Icon_azul.png); background-repeat:">
+  
+  <div class="col-md-2 mb-md-8 mb-5" >
+
+    <!-- Links -->
+    <h5 class="text-uppercase">Links Relacionados</h5>
+
+    <ul class="list-unstyled">
+      <li>
+        <a href="#!">Obter ajuda</a>
+      </li>
+      <li>
+        <a href="#!">Relate um problema</a>
+      </li>
+      <li>
+        <a href="#!">Fale conosco</a>
+      </li>
+      <li>
+        <a href="#!">Cadastre um ponto turístico</a>
+      </li>
+    </ul>
+
+  </div>
+  
+  <div class="col-md-2 mb-md-0 mb-5">
+
+    <!-- Links -->
+    <h5 class="text-uppercase">Links Relacionados</h5>
+
+    <ul class="list-unstyled">
+      <li>
+        <a href="#!">Termos de uso</a>
+      </li>
+      <li>
+        <a href="#!">Esqueci minha senha</a>
+      </li>
+      <li>
+        <a href="#!">Crie uma conta</a>
+      </li>
+      <li>
+        <a href="#!">Veja os principais pontos</a>
+      </li>
+    </ul>
+
+  </div>
+  
+  <ul class="links_footer" style=" ">
+   
+    <!-- Grid column -->
+    <div class="col-md-12 py-5">
+      <div class="mb-50 flex-center">
+        
+        <!-- Facebook -->
+      </br>
+      <div id="icones">
+	      <a href="https://github.com/naadabefarias/Projeto-Pratica" target="_blank"><i class="fab fa-github-square fa-lg white-text mr-md-5 mr-3 fa-3x"></i></a>
+	      <a src="fb-ic" href="https://fb.me" target="_blank" style=" text-decoration: none;">
+	        <i class="fa fa-facebook black  fa-lg white-text mr-md-3   mr-5 fa-3x"> </i>
+	      </a>
+	      <!-- Twitter -->
+	      <a class="tw-ic" href="https://www.twitter.com" target="_blank" style=" text-decoration: none;">
+	        <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+	      </a>
+	      <!-- Google +-->
+	      <a class="gplus-ic" href="https://plus.google.com" target="_blank" style=" text-decoration: none;">
+	        <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+	      </a>
+	      <!--Instagram-->
+	      <a class="ins-ic" href="https://www.instagram.com" target="_blank" style=" text-decoration: none;">
+	        <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+	      </a>
+      </div>
+    </a>
+  </div>
+</div>
+</ul>
+          </div>
+        </div>
+    </ul>
+
+<div class="footer-copyright text-center py-5 ">
+        <!--<b class="copy" style="">© 2018 Copyright:IFPE </b>
+        +-->
+      </div>
+    </footer>
+  <script>//Função de pesquisa, Auto complete Input
+    $(document).ready(function(){
+
+      function limpar(){
+        $('#locais').html("");
+      }
+
+      $('#form-controlpesq').keyup(function() {
+        var query = $(this).val();
+        if(query != ''){
+          
+          
+          $.ajax({
+            url:"Controller/action_filtrar.php",
+            method:"POST",
+            data:{query:query},
+            success:function(data)
+            {
+              $('#locais').fadeIn();
+              $('#locais').html(data);
+            }
+          });
+        }
+        else{
+          limpar();
+        }
+      });
+
+      $('.ack').on('click', function(e){
+        e.preventDefault();
+        console.log("ok");
+      });
+
+      $('#locate').on('click', function(e){
+        $('.encontrarLocate').trigger('click');
+      });
+
+    });
+
+
+  </script>
+</body>
+</html>
